@@ -30,7 +30,6 @@ pipeline {
         echo "build start"
         sh '''
           
-          npm install
           npm run build
           ls -la
          '''
