@@ -17,7 +17,7 @@ pipeline {
       steps {
         echo "build start"
         sh '''
-          cd TypeScript
+          
           npm install
           npm run build
           ls -la
