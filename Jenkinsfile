@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('clone') {
       steps {
-        echo "cloning typescript project'
+        echo "cloning typescript project"
         git branch: 'main' , url: 'https://github.com/praveenkumar57/TypeScript.git'
         sh '''
           pwd
