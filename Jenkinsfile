@@ -13,6 +13,18 @@ pipeline {
       }
     }
     
+    stage('fetch tags') {
+      steps {
+        sh '''
+          git fetch --all --tags
+          git for-each-ref --sort=-creatordate | grep 'tags'| cut -f 3 -d "/" > tags.txt
+          cat tags.txt
+          RECENT_TAG=$(cat tags.txt | head -1)
+          echo $RECENT_TAG
+          '''
+      }
+    }
+    
     stage('build') {
       steps {
         echo "build start"
